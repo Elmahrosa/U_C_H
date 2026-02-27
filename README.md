@@ -1,9 +1,7 @@
 <p align="center">
-  <img src="docs/salma-unity-care-hospital.jpg" alt="U_C_H Enterprise" width="420"/>
+  <img src="https://github.com/user-attachments/assets/e4d2be44-917e-4452-87f0-12c999eb2e1f" width="100" height="auto">
 </p>
-
 <h1 align="center">U_C_H Enterprise</h1>
-
 <p align="center">
   <strong>Institutional-Grade Digital Hospital Infrastructure Platform</strong><br/>
   Modular • White-Label Ready • Telehealth • AI • IoT • Audit Trails
