@@ -1,11 +1,14 @@
-﻿{
-    "status":  "development",
-    "governance":  {
-                       "framework":  "TEOS-FORGE-GLOBAL",
-                       "compliance_standard":  "Universal-DPI"
-                   },
-    "project":  "salma-unity-care-hospital",
-    "version":  "1.0.0",
-    "organization":  "Elmahrosa",
-    "registry":  "https://github.com/Elmahrosa/elmahrosa-core.git"
+{
+    "status": "production",
+    "governance": {
+        "framework": "TEOS-FORGE-GLOBAL",
+        "compliance_standard": "Universal-DPI"
+    },
+    "project": "unity-care-hospital",
+    "version": "2.0.0",
+    "organization": "Elmahrosa International",
+    "registry": "https://github.com/Elmahrosa/U_C_H",
+    "live_demo": "https://unitycare.teosegypt.com",
+    "pi_app": "https://salmaunitycareho3075.pinet.com",
+    "contact": "ayman@teosegypt.com"
 }
