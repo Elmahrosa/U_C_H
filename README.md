@@ -7,6 +7,8 @@
   Modular • White-Label Ready • Telehealth • AI • IoT • Audit Trails
 </p>
 
+![CI/CD](https://github.com/Elmahrosa/U_C_H/actions/workflows/docker-image.yml/badge.svg)
+
 # ![CI/CD](https://github.com/Elmahrosa/U_C_H/actions/workflows/docker-image.yml/badge.svg)
 <p align="center">
   <a href="https://unitycare.teosegypt.com"><img src="https://img.shields.io/badge/Live%20Demo-Visit%20Now-blue?style=for-the-badge" alt="Live Demo"></a>
