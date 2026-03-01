@@ -1,284 +1,160 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e4d2be44-917e-4452-87f0-12c999eb2e1f" width="200" height="auto"/>
-</p>
+# 🚀 Welcome to Z.ai Code Scaffold
 
-<h1 align="center">U_C_H Enterprise</h1>
+A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
 
-<p align="center">
-  <strong>Institutional-Grade Digital Hospital Infrastructure Platform</strong><br/>
-  Modular · White-Label Ready · Telehealth · AI · IoT · Pi Network
-</p>
+## ✨ Technology Stack
 
-<p align="center">
-  <a href="https://github.com/Elmahrosa/U_C_H/actions/workflows/docker-image.yml">
-    <img src="https://github.com/Elmahrosa/U_C_H/actions/workflows/docker-image.yml/badge.svg" alt="CI/CD"/>
-  </a>
-  <img src="https://img.shields.io/badge/version-2.0.0-blue?style=flat-square" alt="Version"/>
-  <img src="https://img.shields.io/badge/license-Proprietary-red?style=flat-square" alt="License"/>
-  <img src="https://img.shields.io/badge/Node.js-20%20LTS-green?style=flat-square" alt="Node"/>
-  <img src="https://img.shields.io/badge/Docker-ready-2496ED?style=flat-square&logo=docker" alt="Docker"/>
-</p>
+This scaffold provides a robust foundation built with:
 
-<p align="center">
-  <a href="https://unitycare.teosegypt.com">
-    <img src="https://img.shields.io/badge/🌐%20Live%20Demo-unitycare.teosegypt.com-1e40af?style=for-the-badge" alt="Live Demo"/>
-  </a>
-  &nbsp;
-  <a href="https://salmaunitycareho3075.pinet.com">
-    <img src="https://img.shields.io/badge/🟣%20Pi%20Network%20App-Live-7c3aed?style=for-the-badge" alt="Pi App"/>
-  </a>
-  &nbsp;
-  <a href="mailto:ayman@teosegypt.com">
-    <img src="https://img.shields.io/badge/📧%20Acquire-ayman@teosegypt.com-dc2626?style=for-the-badge" alt="Contact"/>
-  </a>
-</p>
+### 🎯 Core Framework
+- **⚡ Next.js 16** - The React framework for production with App Router
+- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
+- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
 
----
+### 🧩 UI Components & Styling
+- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
+- **🎯 Lucide React** - Beautiful & consistent icon library
+- **🌈 Framer Motion** - Production-ready motion library for React
+- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
 
-## 🏛 Executive Overview
+### 📋 Forms & Validation
+- **🎣 React Hook Form** - Performant forms with easy validation
+- **✅ Zod** - TypeScript-first schema validation
 
-**U_C_H Enterprise** is a production-ready hospital operations platform engineered for institutional deployment and white-label commercialization. It is designed as transferable healthcare infrastructure — not a prototype.
+### 🔄 State Management & Data Fetching
+- **🐻 Zustand** - Simple, scalable state management
+- **🔄 TanStack Query** - Powerful data synchronization for React
+- **🌐 Fetch** - Promise-based HTTP request
 
-> **Not an idea. Not a demo. Working infrastructure — live today.**
+### 🗄️ Database & Backend
+- **🗄️ Prisma** - Next-generation TypeScript ORM
+- **🔐 NextAuth.js** - Complete open-source authentication solution
 
-| Metric | Detail |
-|--------|--------|
-| Custom telehealth build cost | **$40,000 – $300,000** · 6–18 months |
-| U_C_H deployment time | **Under 30 days** · white-label ready |
-| Market size (2025) | **$11.5B** → **$55.6B** at 25.1% CAGR |
-| Pi Network reach | **70 million users** · zero healthcare dApps at scale |
-| Providers using vendor platforms | **88%** of the market |
+### 🎨 Advanced UI Features
+- **📊 TanStack Table** - Headless UI for building tables and datagrids
+- **🖱️ DND Kit** - Modern drag and drop toolkit for React
+- **📊 Recharts** - Redefined chart library built with React and D3
+- **🖼️ Sharp** - High performance image processing
 
----
+### 🌍 Internationalization & Utilities
+- **🌍 Next Intl** - Internationalization library for Next.js
+- **📅 Date-fns** - Modern JavaScript date utility library
+- **🪝 ReactUse** - Collection of essential React hooks for modern development
 
-## 🌐 Live Deployments
+## 🎯 Why This Scaffold?
 
-| Platform | URL | Status |
-|----------|-----|--------|
-| Web Application | [unitycare.teosegypt.com](https://unitycare.teosegypt.com) | ✅ Live |
-| Pi Network App | [salmaunitycareho3075.pinet.com](https://salmaunitycareho3075.pinet.com) | ✅ Live |
-| Repository | [github.com/Elmahrosa/U_C_H](https://github.com/Elmahrosa/U_C_H) | ✅ Active |
+- **🏎️ Fast Development** - Pre-configured tooling and best practices
+- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
+- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
+- **📱 Responsive** - Mobile-first design principles with smooth animations
+- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
+- **🔐 Auth Included** - NextAuth.js for secure authentication flows
+- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
+- **🌍 i18n Ready** - Multi-language support with Next Intl
+- **🚀 Production Ready** - Optimized build and deployment settings
+- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
 
----
-
-## 🧩 Core Capabilities
-
-### Clinical Operations
-- Patient profiles & medical records
-- Appointment scheduling with full audit trail
-- Doctor workflow dashboard
-- Prescription management
-- Pharmacy inventory coordination
-
-### Telehealth
-- WebRTC HD video consultation
-- Real-time communication via Socket.IO
-- Session management & remote triage workflows
-
-### AI & Automation
-- Conversational AI — Arabic, English, French
-- Voice transcription hooks
-- Intelligent routing structures
-
-### Monitoring & Emergency
-- IoT vital monitoring — HR, BP, Temp, O₂ (real-time dashboard)
-- Emergency dispatch — Twilio SMS/Voice alerts + responder routing
-- System health monitoring
-
-### Audit & Integrity
-- Record integrity architecture with logging foundations
-- Optional blockchain audit layer (modular, extensible)
-
-### Pi Network Integration
-- Pi SDK — Mainnet live
-- 70 million potential users
-- Payment-agnostic architecture (replaceable with any payment system)
-
----
-
-## ✅ Platform Modules
-
-| Module | Capability | Status |
-|--------|-----------|--------|
-| Doctor Consultations | Booking + full audit trail | ✅ Live |
-| Telemedicine Video | WebRTC HD + Socket.IO | ✅ Live |
-| Pharmacy Delivery | E-prescription + barcode + delivery tracking | ✅ Live |
-| Emergency Dispatch | SMS/voice alerts + responder routing | ✅ Live |
-| AI Health Assistant | Arabic · English · French | ✅ Live |
-| IoT Vital Monitoring | Real-time HR, BP, Temp, O₂ | ✅ Live |
-| Medical Records | Complete patient history | ✅ Live |
-| Blockchain Audit Layer | Optional — modular architecture | ✅ Available |
-| Pi Network Payments | Pi SDK Mainnet | ✅ Live |
-| White-Label Config | Full rebrand via one config file | ✅ 5 Minutes |
-
----
-
-## 🏗 Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                      CLIENT LAYER                        │
-│   Pi Browser App (Next.js 15)    Web App (React + TS)   │
-└──────────────┬──────────────────────────┬───────────────┘
-               │                          │
-               ▼                          ▼
-┌─────────────────────────────────────────────────────────┐
-│           BACKEND API  (Node.js 20 + Express)            │
-│   JWT Auth · REST API · Socket.IO · Rate Limiting        │
-└──────┬───────────────────┬──────────────────┬───────────┘
-       │                   │                  │
-       ▼                   ▼                  ▼
-  ┌──────────┐    ┌─────────────────┐  ┌──────────────────┐
-  │ MONGODB  │    │   BLOCKCHAIN    │  │  INTEGRATIONS    │
-  │ Primary  │    │ Optional Audit  │  │ Twilio · Pi SDK  │
-  │ Database │    │     Layer       │  │ WebRTC · IoT     │
-  └──────────┘    └─────────────────┘  └──────────────────┘
-               ┌─────────────────────────────────────────┐
-               │    INFRASTRUCTURE                        │
-               │  Docker · GitHub Actions CI/CD           │
-               │  Prometheus · Grafana · Redis            │
-               └─────────────────────────────────────────┘
-```
-
-**Frontend:** React 18 + TypeScript · Next.js 15 · Tailwind CSS · shadcn/ui  
-**Backend:** Node.js 20 · Express · JWT · RBAC · Socket.IO  
-**Database:** MongoDB 7 + Mongoose · Redis cache  
-**Infrastructure:** Docker · GitHub Actions · Prometheus · Grafana
-
----
-
-## 🔐 Security & Compliance
-
-| Control | Implementation |
-|---------|---------------|
-| Authentication | JWT with refresh tokens |
-| Password hashing | bcryptjs (12 rounds) |
-| Access control | Role-Based (RBAC) — patient, doctor, pharmacy, admin, emergency |
-| API protection | Rate limiting on all endpoints |
-| Security headers | Helmet.js |
-| Secrets | Environment variable isolation |
-| Containerization | Docker — full isolation |
-| Audit | Structured logging with Winston |
-| Vulnerability scan | 0 known vulnerabilities (npm audit clean) |
-
-Documentation includes security implementation guide, threat model, and HIPAA/GDPR framework mapping.  
-*Compliance implementation depends on deployment environment.*
-
----
-
-## 🎨 Rebrand in 5 Minutes
-
-Edit **one file only** — `branding-config.ts`:
-
-```typescript
-export const BRANDING = {
-  APP_NAME:         "Your Hospital Name",
-  APP_TAGLINE:      "Your tagline here",
-  SUPPORT_EMAIL:    "you@yourhospital.com",
-  WEBSITE_URL:      "https://yourhospital.com",
-  EMERGENCY_NUMBER: "911",
-  POWERED_BY:       "Powered by Your Brand",
-  SERVICES: {
-    consultation: { name: "Doctor Consultation", price: 50 },
-    telemedicine:  { name: "Telemedicine Call",   price: 30 },
-    pharmacy:      { name: "Pharmacy Delivery",   price: 20 },
-    emergency:     { name: "Emergency Dispatch",  price: 0  },
-  },
-}
-```
-
-Every page, chatbot response, and notification updates automatically.
-
----
-
-## 🚀 Quick Deploy
+## 🚀 Quick Start
 
 ```bash
-# Clone
-git clone https://github.com/Elmahrosa/U_C_H.git
-cd U_C_H
+# Install dependencies
+bun install
 
-# Configure
-cp backend/.env.example backend/.env
-# Edit backend/.env — set JWT_SECRET to a secure random string
+# Start development server
+bun run dev
 
-# Deploy (all services: API + Frontend + MongoDB + Redis + Monitoring)
-docker-compose up -d --build
+# Build for production
+bun run build
 
-# Verify
-curl http://localhost:5000/health
-# Open http://localhost:3000
+# Start production server
+bun start
 ```
 
-See [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) for full production deployment guide.
+Open [http://localhost:3000](http://localhost:3000) to see your application running.
+
+## 🤖 Powered by Z.ai
+
+This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+
+- **💻 Code Generation** - Generate components, pages, and features instantly
+- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
+- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
+- **📝 Documentation** - Auto-generate comprehensive documentation
+- **🚀 Optimization** - Performance improvements and best practices
+
+Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # Reusable React components
+│   └── ui/             # shadcn/ui components
+├── hooks/              # Custom React hooks
+└── lib/                # Utility functions and configurations
+```
+
+## 🧩 Added: Institutional API (Express + Mongoose)
+
+This repo now includes a standalone enterprise API server under `backend/` for institutional deployments.
+
+### Run API locally
+
+```bash
+# one-time install
+npm --prefix backend i
+
+# copy env template
+cp backend/.env.example backend/.env
+
+# start API
+npm --prefix backend run dev
+```
+
+API health check: `GET http://localhost:5000/health`
+
+## 🎨 Available Features & Components
+
+This scaffold includes a comprehensive set of modern web development tools:
+
+### 🧩 UI Components (shadcn/ui)
+- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
+- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
+- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
+- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
+- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
+- **Data Display**: Badge, Avatar, Calendar
+
+### 📊 Advanced Data Features
+- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
+- **Charts**: Beautiful visualizations with Recharts
+- **Forms**: Type-safe forms with React Hook Form + Zod validation
+
+### 🎨 Interactive Features
+- **Animations**: Smooth micro-interactions with Framer Motion
+- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
+- **Theme Switching**: Built-in dark/light mode support
+
+### 🔐 Backend Integration
+- **Authentication**: Ready-to-use auth flows with NextAuth.js
+- **Database**: Type-safe database operations with Prisma
+- **API Client**: HTTP requests with Fetch + TanStack Query
+- **State Management**: Simple and scalable with Zustand
+
+### 🌍 Production Features
+- **Internationalization**: Multi-language support with Next Intl
+- **Image Optimization**: Automatic image processing with Sharp
+- **Type Safety**: End-to-end TypeScript with Zod validation
+- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
+
+## 🤝 Get Started with Z.ai
+
+1. **Clone this scaffold** to jumpstart your project
+2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
+3. **Start building** with intelligent code generation and assistance
+4. **Deploy with confidence** using the production-ready setup
 
 ---
 
-## 💰 Acquisition Value
-
-| Factor | Detail |
-|--------|--------|
-| Time saved | 6–18 months of development → 30 days to launch |
-| Cost saved | $40K–$300K to build → fraction of that to acquire |
-| Market timing | White-label telehealth at 25.1% CAGR |
-| Distribution | Pi Network — 70M users, zero healthcare dApps at scale |
-| Flexibility | Payment-agnostic — swap Pi for Stripe, Fawry, or any gateway |
-| Multilingual | Arabic, English, French — built in, not bolted on |
-| Completeness | Frontend + backend + DevOps + docs — everything included |
-| Track record | Elmahrosa International — operational since 2007 |
-
----
-
-## 📦 Enterprise Release
-
-**Version:** v2.0.0 Enterprise · **Released:** 2026-02-27
-
-Full source access provided under controlled distribution.  
-Access requires NDA + commercial discussion.
-
-📧 **ayman@teosegypt.com** · Subject: `U_C_H Enterprise Access`
-
----
-
-## 💼 Licensing & Acquisition
-
-U_C_H Enterprise is proprietary software owned by **Elmahrosa International**.
-
-| License Type | Description |
-|---|---|
-| White-Label License | Non-exclusive, per region |
-| Exclusive Regional License | Competitor lockout in your territory |
-| Strategic Commercial Partnership | Joint deployment |
-| Full IP Transfer | Complete global rights (negotiated) |
-
----
-
-## 📚 Documentation
-
-| Document | Description |
-|---|---|
-| [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) | Full deployment guide |
-| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Technical architecture |
-| [`docs/COMPLIANCE.md`](./docs/COMPLIANCE.md) | HIPAA/GDPR framework |
-| [`docs/SECURITY_IMPLEMENTATION.md`](./docs/SECURITY_IMPLEMENTATION.md) | Security controls |
-| [`docs/ACQUISITION_BRIEF.md`](./docs/ACQUISITION_BRIEF.md) | Investor/buyer brief |
-| [`docs/INVESTOR_BRIEF.md`](./docs/INVESTOR_BRIEF.md) | Financial overview |
-| [`OUTREACH_GUIDE.md`](./OUTREACH_GUIDE.md) | Sales outreach guide |
-
----
-
-## 🤝 Contact
-
-**Ayman Seif** · Elmahrosa International
-
-📧 [ayman@teosegypt.com](mailto:ayman@teosegypt.com)  
-🌐 [unitycare.teosegypt.com](https://unitycare.teosegypt.com)  
-🔗 [Pi Network App](https://salmaunitycareho3075.pinet.com)
-
-> *Send your GitHub username to receive READ access for technical due diligence. Response within 2 hours.*
-
----
-
-<p align="center">
-  <em>Developed by <a href="https://teosegypt.com">Elmahrosa International</a> — Blockchain Technology Company, Egypt, est. 2007</em>
-</p>
+Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀

@@ -1,14 +1,10 @@
 const express = require('express');
+const authMiddleware = require('../middlewares/authMiddleware');
+
 const router = express.Router();
-const iotController = require('../controllers/iotController');
-const { authenticate } = require('../middleware/authMiddleware'); // Middleware for authentication
-const { logRequest } = require('../middleware/loggingMiddleware'); // Middleware for logging requests
 
-// Middleware to log incoming requests
-router.use(logRequest);
+router.get('/status', authMiddleware, (req, res) => {
+  res.json({ ok: true, message: 'IoT placeholder (integration roadmap).' });
+});
 
-// Route to receive IoT data
-router.post('/data', authenticate, iotController.receiveIoTData);
-
-// Export the router
 module.exports = router;

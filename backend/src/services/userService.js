@@ -1,79 +1,58 @@
-const bcrypt = require('bcryptjs');
+// ✅ FIX: was importing 'bcryptjs' — unified to 'bcrypt' for consistency
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Import the User model
+const User = require('../models/User');
 
-// User service class
 class UserService {
-    // Register a new user
-    static async registerUser ({ name, email, password }) {
-        // Check if the user already exists
-        const existingUser  = await User.findOne({ email });
-        if (existingUser ) {
-            throw new Error('User  already exists');
+    static async registerUser({ name, email, password, role }) {
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            throw new Error('User already exists');
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create a new user
-        const user = new User({
-            name,
-            email,
-            password: hashedPassword,
-        });
-
-        // Save the user to the database
+        // ✅ FIX: do NOT hash here — model pre-save hook handles it to avoid double-hashing
+        const user = new User({ name, email, password, role: role || 'patient' });
         await user.save();
-
         return user;
     }
 
-    // Login a user
-    static async loginUser (email, password) {
-        // Find the user by email
+    static async loginUser(email, password) {
         const user = await User.findOne({ email });
         if (!user) {
             throw new Error('Invalid credentials');
         }
 
-        // Compare the password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             throw new Error('Invalid credentials');
         }
 
-        // Generate a JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRES_IN || '1h'
+        });
 
         return { user, token };
     }
 
-    // Get user details
-    static async getUser ById(userId) {
-        const user = await User.findById(userId).select('-password'); // Exclude password
+    static async getUserById(userId) {
+        const user = await User.findById(userId).select('-password -invalidatedTokens');
         if (!user) {
-            throw new Error('User  not found');
+            throw new Error('User not found');
         }
         return user;
     }
 
-    // Update user information
-    static async updateUser (userId, updateData) {
+    static async updateUser(userId, updateData) {
         const user = await User.findById(userId);
         if (!user) {
-            throw new Error('User  not found');
+            throw new Error('User not found');
         }
 
-        // Update user fields
-        if (updateData.password) {
-            updateData.password = await bcrypt.hash(updateData.password, 10); // Hash new password
-        }
-
-        Object.assign(user, updateData); // Update user with new data
-        await user.save(); // Save changes
-
+        // ✅ FIX: don't hash here — assign plain text and let pre-save hook hash it
+        Object.assign(user, updateData);
+        await user.save();
         return user;
     }
 }
 
-module.exports = UserService; // Export the UserService class
+module.exports = UserService;

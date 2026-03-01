@@ -1,7 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
-const authMiddleware = require('../middleware/authMiddleware'); // Middleware for authentication
-const userController = require('../controllers/userController'); // Import user controller
+const authMiddleware = require('../middlewares/authMiddleware');
+const userController = require('../controllers/userController');
 
 const router = express.Router();
 
@@ -13,9 +13,9 @@ router.post(
     [
         check('name', 'Name is required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
-        check('password', 'Password must be at least 6 characters').isLength({ min: 6 }),
+        check('password', 'Password must be at least 8 characters').isLength({ min: 8 }),
     ],
-    userController.registerUser 
+    userController.registerUser
 );
 
 // @route   POST api/users/login
@@ -27,13 +27,14 @@ router.post(
         check('email', 'Please include a valid email').isEmail(),
         check('password', 'Password is required').exists(),
     ],
-    userController.loginUser 
+    userController.loginUser
 );
 
 // @route   GET api/users/me
 // @desc    Get current user details
 // @access  Private
-router.get('/me', authMiddleware, userController.getUser Details);
+// ✅ FIX: was referencing 'getUser Details' (space) — broken route handler reference
+router.get('/me', authMiddleware, userController.getUserDetails);
 
 // @route   PUT api/users/update
 // @desc    Update user information
@@ -44,8 +45,19 @@ router.put(
     [
         check('name', 'Name is required').optional().not().isEmpty(),
         check('email', 'Please include a valid email').optional().isEmail(),
+        check('password', 'Password must be at least 8 characters').optional().isLength({ min: 8 }),
     ],
-    userController.updateUser 
+    userController.updateUser
 );
 
-module.exports = router; // Export the router
+// @route   GET api/users
+// @desc    List all users (admin only)
+// @access  Private/Admin
+router.get(
+    '/',
+    authMiddleware,
+    authMiddleware.requireRole('admin'),
+    userController.getAllUsers
+);
+
+module.exports = router;

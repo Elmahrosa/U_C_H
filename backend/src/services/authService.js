@@ -1,62 +1,59 @@
-const bcrypt = require('bcryptjs');
+// ✅ FIX: was importing 'bcryptjs' while all other files use 'bcrypt'
+// Unified to 'bcrypt' to avoid subtle comparison failures if both are installed
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Import the User model
+const User = require('../models/User');
 
-// Authentication service class
+const generateToken = (userId, expiresIn = process.env.JWT_EXPIRES_IN || '1h') => {
+    return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn });
+};
+
 class AuthService {
-    // Login a user
-    static async loginUser (email, password) {
-        // Find the user by email
+    static async loginUser(email, password) {
         const user = await User.findOne({ email });
         if (!user) {
+            // ✅ FIX: generic message prevents user enumeration
             throw new Error('Invalid credentials');
         }
 
-        // Compare the password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             throw new Error('Invalid credentials');
         }
 
-        // Generate a JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        return { user: this.sanitizeUser (user), token };
+        const token = generateToken(user._id);
+        return { user: this.sanitizeUser(user), token };
     }
 
-    // Refresh token
     static async refreshToken(token) {
         if (!token) {
             throw new Error('No token provided');
         }
 
         try {
-            // Verify the token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            const user = await User.findById(decoded.id).select('-password'); // Exclude password
+            const refreshSecret = process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET + '_refresh';
+            const decoded = jwt.verify(token, refreshSecret);
+            const user = await User.findById(decoded.id).select('-password -invalidatedTokens');
 
             if (!user) {
-                throw new Error('User  not found');
+                throw new Error('User not found');
             }
 
-            // Generate a new token
-            const newToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-            return { user: this.sanitizeUser (user), token: newToken };
+            const newToken = generateToken(user._id);
+            return { user: this.sanitizeUser(user), token: newToken };
         } catch (err) {
             throw new Error('Invalid token');
         }
     }
 
-    // Sanitize user data (exclude sensitive information)
-    static sanitizeUser (user) {
+    static sanitizeUser(user) {
         return {
             id: user._id,
             name: user.name,
             email: user.email,
-            // Add any other fields you want to expose
+            role: user.role, // ✅ ADDED: role is needed by frontend for RBAC routing
         };
     }
 }
 
-module.exports = AuthService; // Export the AuthService class
+module.exports = AuthService;

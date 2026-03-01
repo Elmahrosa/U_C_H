@@ -1,36 +1,20 @@
 const mongoose = require('mongoose');
 
-// Define the Appointment schema
 const appointmentSchema = new mongoose.Schema({
-    date: {
-        type: Date,
-        required: true,
-    },
-    time: {
-        type: String,
-        required: true,
-    },
-    patient: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User ', // Reference to the User model
-        required: true,
-    },
-    doctor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User ', // Reference to the User model
-        required: true,
-    },
-    notes: {
-        type: String,
-        trim: true,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-});
+  date: { type: Date, required: true },
+  time: { type: String, required: true, trim: true },
+  patient: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  doctor: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  notes: { type: String, default: '' },
+  status: {
+    type: String,
+    enum: ['pending', 'confirmed', 'completed', 'cancelled'],
+    default: 'pending'
+  }
+}, { timestamps: true });
 
-// Create the Appointment model
-const Appointment = mongoose.model('Appointment', appointmentSchema);
+// Helpful indexes
+appointmentSchema.index({ doctor: 1, date: 1, time: 1, status: 1 });
+appointmentSchema.index({ patient: 1, date: -1 });
 
-module.exports = Appointment; // Export the Appointment model
+module.exports = mongoose.model('Appointment', appointmentSchema);

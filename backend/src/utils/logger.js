@@ -1,48 +1,26 @@
-const winston = require('winston');
+// Minimal logger middleware to avoid missing-module crashes.
+// Replace with Winston/Pino later if desired.
 
-// Create a logger instance
-const logger = winston.createLogger({
-    level: 'info', // Default logging level
-    format: winston.format.combine(
-        winston.format.timestamp(), // Add timestamp to logs
-        winston.format.json() // Log in JSON format
-    ),
-    transports: [
-        // Console transport for logging to the console
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.colorize(), // Colorize console output
-                winston.format.simple() // Log in a simple format
-            ),
-        }),
-        // File transport for logging to a file
-        new winston.transports.File({
-            filename: 'logs/error.log', // Log file for errors
-            level: 'error', // Only log error level messages
-            format: winston.format.json(),
-        }),
-        new winston.transports.File({
-            filename: 'logs/combined.log', // Log file for all messages
-            format: winston.format.json(),
-        }),
-    ],
-});
+function requestLogger(req, _res, next) {
+  // Lightweight structured log
+  // eslint-disable-next-line no-console
+  console.log(JSON.stringify({
+    t: new Date().toISOString(),
+    method: req.method,
+    path: req.originalUrl
+  }));
+  next();
+}
 
-// Middleware for logging requests
-const requestLogger = (req, res, next) => {
-    logger.info(`HTTP ${req.method} ${req.url} - ${req.ip}`);
-    next(); // Proceed to the next middleware or route handler
-};
+function errorLogger(err, _req, _res, next) {
+  // eslint-disable-next-line no-console
+  console.error(JSON.stringify({
+    t: new Date().toISOString(),
+    level: 'error',
+    message: err.message,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+  }));
+  next(err);
+}
 
-// Error logging function
-const errorLogger = (err, req, res, next) => {
-    logger.error(`Error: ${err.message} - ${req.method} ${req.url} - ${req.ip}`);
-    next(err); // Pass the error to the next error handling middleware
-};
-
-// Export the logger and middleware
-module.exports = {
-    logger,
-    requestLogger,
-    errorLogger,
-};
+module.exports = { requestLogger, errorLogger };
