@@ -1,1 +1,622 @@
-<h1>Welcome to salma-unity-care-hospital</h1><p>Deployed by Codex Agent</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unity Care Hospital (UCH) — Institutional Telehealth Infrastructure</title>
+  <meta name="description" content="Unity Care Hospital (UCH) is modular telehealth infrastructure designed for institutional deployment — licensable or ownable. Pilot-ready, audit-aligned, procurement-ready." />
+  <meta name="theme-color" content="#0A0F1A" />
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:rgba(255,255,255,.05);
+      --panel2:rgba(255,255,255,.08);
+      --txt:rgba(248,250,252,.92);
+      --muted:rgba(226,232,240,.72);
+      --line:rgba(255,255,255,.10);
+      --gold:#F4D35E;
+      --gold2:#C8A415;
+      --cyan:#06B6D4;
+      --danger:#FF4D4D;
+      --ok:#22C55E;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --r:18px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--txt);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .bg{
+      position:fixed;inset:0;z-index:-1;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(200,164,21,.20), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(6,182,212,.18), transparent 60%),
+        radial-gradient(900px 700px at 50% 90%, rgba(244,211,94,.10), transparent 60%),
+        linear-gradient(180deg, #050611, #070A12);
+      filter:saturate(1.05);
+    }
+    .wrap{min-height:100vh}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+    nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; gap:18px;
+      padding:14px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .mark{
+      width:38px;height:38px; border-radius:12px;
+      background:linear-gradient(145deg, rgba(244,211,94,.95), rgba(200,164,21,.95));
+      display:grid; place-items:center;
+      box-shadow: 0 12px 28px rgba(200,164,21,.18);
+    }
+    .brand span{color:var(--gold)}
+    .sp{flex:1}
+    .links{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+    .links a{color:var(--muted); font-weight:650; font-size:14px}
+    .links a:hover{color:var(--txt)}
+    .btn{
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(200,164,21,.35);
+      background:rgba(200,164,21,.14);
+      color:rgba(248,250,252,.92);
+      font-weight:800;
+    }
+    .btn:hover{border-color:rgba(200,164,21,.55); background:rgba(200,164,21,.20)}
+    header{padding:46px 0 18px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+    }
+    .h-card{
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    h1{margin:0 0 10px; font-size: clamp(28px, 3.5vw, 44px); line-height:1.08}
+    .sub{margin:0; color:var(--muted); font-size:16px; line-height:1.55}
+    .sub b{color:rgba(248,250,252,.92)}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0}
+    .pill{
+      padding:8px 12px; border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(226,232,240,.90);
+      font-weight:750; font-size:13px;
+    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .ghost{
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+      color:rgba(248,250,252,.90);
+      font-weight:800;
+    }
+    .ghost:hover{border-color:rgba(200,164,21,.35)}
+    .right{
+      display:grid; gap:12px;
+      grid-template-columns:1fr 1fr;
+    }
+    @media (max-width: 520px){ .right{grid-template-columns:1fr} }
+    .stat{
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: rgba(255,255,255,.04);
+      padding:14px;
+    }
+    .k{display:flex; align-items:center; gap:10px; color:rgba(226,232,240,.88); font-weight:850}
+    .k svg{width:18px;height:18px}
+    .v{margin-top:8px; font-size:16px; font-weight:900}
+    .m{margin-top:2px; color:var(--muted); font-size:13px}
+    section{padding:28px 0}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 920px){ .two{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: rgba(255,255,255,.04);
+      padding:18px;
+    }
+    .row{display:flex; gap:12px}
+    .ico{
+      width:44px;height:44px;border-radius:16px;
+      display:grid; place-items:center;
+      background: rgba(200,164,21,.12);
+      border:1px solid rgba(200,164,21,.22);
+      flex:0 0 auto;
+    }
+    .ico svg{width:22px;height:22px}
+    .title{font-weight:950; font-size:16px; margin-bottom:6px}
+    ul{margin:10px 0 0 18px; color:rgba(226,232,240,.86); line-height:1.55}
+    .muted{color:var(--muted)}
+    .grid3{
+      display:grid; grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr} }
+    .price{
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding:18px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(200,164,21,.28);
+      background: rgba(200,164,21,.12);
+      font-weight:900; font-size:12px;
+      color:rgba(248,250,252,.92);
+    }
+    .price h3{margin:10px 0 6px}
+    .money{font-size:28px; font-weight:1000; margin:10px 0}
+    .small{font-size:13px; color:rgba(226,232,240,.78); line-height:1.5}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+    footer{
+      padding:26px 0 34px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .contact{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    }
+    @media (max-width: 920px){ .contact{grid-template-columns:1fr} }
+    .contact a{color:rgba(248,250,252,.90)}
+    .callout{
+      border:1px solid rgba(6,182,212,.25);
+      background: rgba(6,182,212,.08);
+      border-radius: var(--r);
+      padding:14px;
+    }
+    .note{
+      border:1px solid rgba(200,164,21,.25);
+      background: rgba(200,164,21,.08);
+      border-radius: var(--r);
+      padding:14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+
+  <div class="wrap">
+    <nav>
+      <div class="container">
+        <div class="nav">
+          <a class="brand" href="#top" aria-label="Unity Care Hospital">
+            <div class="mark" aria-hidden="true">
+              <!-- shield -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0A0F1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6l7-4z"/>
+                <path d="M9 12l2 2 4-5"/>
+              </svg>
+            </div>
+            Unity Care <span>Hospital</span>
+          </a>
+
+          <div class="sp"></div>
+
+          <div class="links">
+            <a href="#positioning">Positioning</a>
+            <a href="#pilot">Pilot</a>
+            <a href="#pricing">Commercial</a>
+            <a href="#docs">Docs</a>
+            <a class="btn" href="#contact">Request Pilot</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header id="top">
+      <div class="container">
+        <div class="hero">
+          <div class="h-card">
+            <h1>Institutional Telehealth Infrastructure — <br/>Licensable or Ownable</h1>
+
+            <!-- ✅ About paragraph (polished, institutional) -->
+            <p class="sub">
+              <b>Unity Care Hospital (UCH)</b> is a modular digital health platform engineered for
+              <b>institutional deployment</b>. It is structured for buyers who require
+              <b>control, isolation, and long-term ownership options</b>—including private hospital groups
+              and sovereign digital health programs.
+              UCH is positioned as <b>infrastructure-as-an-asset</b>, not consumer SaaS.
+            </p>
+
+            <div class="pillrow">
+              <div class="pill">Pilot-ready (3–6 months)</div>
+              <div class="pill">Dedicated instance (isolation)</div>
+              <div class="pill">Audit-aligned posture</div>
+              <div class="pill">Optional crypto settlement</div>
+            </div>
+
+            <div class="cta">
+              <a class="btn" href="#contact">Request Institutional Pilot</a>
+              <a class="ghost" href="#pricing">View Commercial Options</a>
+              <a class="ghost" href="#docs">Open Diligence Package</a>
+            </div>
+
+            <!-- ✅ Snippet: Security posture -->
+            <p class="small" style="margin-top:12px">
+              Compliance posture: HIPAA-aligned architecture, SOC 2 principles applied.
+              Formal certification audits are scheduled post-seed funding.
+            </p>
+          </div>
+
+          <div class="right">
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M3 12h18"/><path d="M12 3v18"/>
+                </svg>
+                Core Modules
+              </div>
+              <div class="v">Pilot scope: 5</div>
+              <div class="m">Controlled & procurement-friendly</div>
+            </div>
+
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                Pilot Duration
+              </div>
+              <div class="v">3–6 months</div>
+              <div class="m">Structured phases</div>
+            </div>
+
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M20 7H4"/><path d="M20 12H4"/><path d="M20 17H4"/>
+                </svg>
+                Deployment
+              </div>
+              <div class="v">Dedicated instance</div>
+              <div class="m">Institution isolation</div>
+            </div>
+
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6l7-4z"/>
+                </svg>
+                Security Posture
+              </div>
+              <div class="v">Audit-aligned</div>
+              <div class="m">No premature claims</div>
+            </div>
+
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/>
+                </svg>
+                Commercial Path
+              </div>
+              <div class="v">License / Own</div>
+              <div class="m">No SaaS lock-in</div>
+            </div>
+
+            <div class="stat">
+              <div class="k">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M12 1v22"/><path d="M17 6l-5-5-5 5"/>
+                </svg>
+                Conversion
+              </div>
+              <div class="v">Pilot → Contract</div>
+              <div class="m">Pilot fee credited</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="positioning">
+      <div class="container">
+        <div class="two">
+          <div class="card">
+            <div class="row">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                  <path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6l7-4z"/>
+                  <path d="M9 12l2 2 4-5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="title">What UCH is</div>
+                <ul>
+                  <li>Modular telehealth infrastructure for institutional deployment</li>
+                  <li>Licensable or fully ownable stack (asset-based model)</li>
+                  <li>Region-specific hosting and instance isolation</li>
+                  <li>Crypto settlement capability is optional (not required)</li>
+                  <li>Designed for sovereign digital health programs and private hospital groups</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div class="ico" aria-hidden="true" style="background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.24)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2">
+                  <path d="M4 19V5"/><path d="M4 5h16"/><path d="M20 5v14"/><path d="M8 12h8"/><path d="M10 10v4"/>
+                </svg>
+              </div>
+              <div>
+                <div class="title">What UCH is not</div>
+                <ul>
+                  <li>Not a consumer telehealth SaaS with centralized lock-in</li>
+                  <li>Not a hype dashboard with unverifiable growth metrics</li>
+                  <li>Not dependent on a single payment rail (fiat fallback available)</li>
+                </ul>
+                <p class="small" style="margin-top:10px">
+                  Institutional buyers value <b>control</b>, <b>isolation</b>, and <b>governance clarity</b>.
+                  UCH is designed around that procurement reality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two" style="margin-top:14px">
+          <div class="callout">
+            <div class="title">Competitive framing (clean)</div>
+            <p class="muted" style="margin:8px 0 0">
+              Teladoc/Amwell optimize for subscription SaaS at scale. UCH optimizes for
+              <b>deployable infrastructure ownership</b> with a controlled pilot → contract pathway.
+            </p>
+          </div>
+          <div class="note">
+            <div class="title">Operational discipline</div>
+            <p class="muted" style="margin:8px 0 0">
+              We publish only defensible statements. Certifications are described as
+              <b>post-seed audits</b>, not present-tense claims.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2">
+                <path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/>
+                <path d="M2 12h6"/><path d="M16 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M14.83 9.17l4.24-4.24"/>
+              </svg>
+            </div>
+            <div>
+              <div class="title">Pilot Deployment (3–6 months)</div>
+              <p class="muted" style="margin:6px 0 0">
+                The pilot is a <b>paid validation phase</b>—limited scope, institution-isolated deployment,
+                designed to convert into full licensing or ownership transfer.
+              </p>
+
+              <div class="hr"></div>
+
+              <div class="two">
+                <div>
+                  <div class="title">Pilot scope (included)</div>
+                  <ul>
+                    <li>Teleconsultation engine</li>
+                    <li>WebRTC video consultations</li>
+                    <li>Role-based authentication</li>
+                    <li>Secure patient records storage</li>
+                    <li>Admin dashboard</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="title">Pilot success metrics</div>
+                  <ul>
+                    <li>✓ ≥ 95% uptime</li>
+                    <li>✓ Verified clinician usage</li>
+                    <li>✓ No critical security incidents</li>
+                    <li>✓ Documented operational improvement</li>
+                    <li>✓ Executive intent to expand</li>
+                    <li>✓ Institution retains full data ownership during pilot</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="small" style="margin-top:12px">
+                Excluded from pilot (roadmap modules): blockchain notarization, IoT vitals, insurance API integration, AI triage assistant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="card" style="margin-bottom:14px">
+          <div class="title">Commercial Options (Baseline)</div>
+          <p class="muted" style="margin:8px 0 0">
+            Pricing is structured for institutional procurement. Final terms depend on scope, hosting requirements, and support level.
+          </p>
+        </div>
+
+        <div class="grid3">
+          <div class="price">
+            <span class="badge">Tier 1 — Platform License</span>
+            <h3>Institutional License</h3>
+            <div class="money">$75K+</div>
+            <div class="hr"></div>
+
+            <!-- ✅ Snippet: Commercial options list -->
+            <ul>
+              <li>Institutional deployment</li>
+              <li>White-label capability</li>
+              <li>Support + upgrades optional</li>
+              <li>Pilot fees credited toward this tier</li>
+              <li>Maintenance contracts typically 15–20% of license value</li>
+            </ul>
+
+            <p class="small" style="margin-top:12px">
+              Best for regional hospital groups that want speed, branding control, and predictable procurement.
+            </p>
+          </div>
+
+          <div class="price">
+            <span class="badge">Tier 2 — Ownership Transfer</span>
+            <h3>Asset Ownership</h3>
+            <div class="money">$250K+</div>
+            <div class="hr"></div>
+
+            <ul>
+              <li>Institutional deployment</li>
+              <li>White-label capability</li>
+              <li>Support + upgrades optional</li>
+              <li>Pilot fees credited toward this tier</li>
+              <li>Maintenance contracts typically 15–20% of license value</li>
+            </ul>
+
+            <p class="small" style="margin-top:12px">
+              Best for private operators seeking long-term control with a clean handover model.
+            </p>
+          </div>
+
+          <div class="price">
+            <span class="badge">Tier 3 — Sovereign Stack</span>
+            <h3>Government / National Program</h3>
+            <div class="money">$350K+</div>
+            <div class="hr"></div>
+
+            <ul>
+              <li>Institutional deployment</li>
+              <li>White-label capability</li>
+              <li>Support + upgrades optional</li>
+              <li>Pilot fees credited toward this tier</li>
+              <li>Maintenance contracts typically 15–20% of license value</li>
+            </ul>
+
+            <p class="small" style="margin-top:12px">
+              Best for sovereign digital health initiatives requiring governance clarity and regional hosting control.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="ico" aria-hidden="true" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(248,250,252,.85)" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="title">Diligence Package</div>
+              <p class="muted" style="margin:6px 0 0">
+                UCH maintains board-ready diligence artifacts for institutional and investor review.
+              </p>
+
+              <!-- ✅ Snippet: Diligence package clarification -->
+              <p class="muted">
+                All diligence documents are available in /docs with board-ready formatting for investor and procurement review.
+              </p>
+
+              <p class="small">
+                Recommended docs: Due Diligence, Security Posture, Pilot Structure, Commercial Terms.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="card">
+            <div class="title">Institutional Contact</div>
+            <p class="muted" style="margin:8px 0 0">
+              Request a pilot deployment or licensing discussion.
+            </p>
+
+            <div class="hr"></div>
+
+            <p class="muted" style="margin:8px 0"><b>Website:</b> <a href="https://uch.teosegypt.com" target="_blank" rel="noopener">uch.teosegypt.com</a></p>
+            <p class="muted" style="margin:8px 0"><b>Email:</b> <a href="mailto:info@uch.teosegypt.com">info@uch.teosegypt.com</a></p>
+            <p class="muted" style="margin:8px 0"><b>Phone:</b> <a href="tel:+201006167293">+201006167293</a></p>
+
+            <!-- ✅ Snippet: response time note -->
+            <p class="muted" style="margin-top:10px">
+              We respond within 48 hours to institutional inquiries.
+            </p>
+
+            <div class="cta" style="margin-top:12px">
+              <a class="btn" href="mailto:info@uch.teosegypt.com?subject=UCH%20Institutional%20Pilot%20Request&body=Institution%20Name%3A%0ARegion%3A%0ADeployment%20Goal%3A%0APreferred%20Tier%3A%20License%20%2F%20Ownership%20%2F%20Sovereign%0ATimeline%3A%0A">Email Pilot Request</a>
+              <a class="ghost" href="#pilot">Review Pilot Scope</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="title">Procurement Notes</div>
+            <ul>
+              <li>Dedicated instance deployment with institutional isolation</li>
+              <li>Institution retains data ownership</li>
+              <li>Scope-controlled pilot with conversion credit</li>
+              <li>Audit-aligned posture (no premature certification claims)</li>
+            </ul>
+
+            <div class="hr"></div>
+            <p class="small">
+              Privacy policy and terms pages:
+              <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> ·
+              <a href="/terms.html" target="_blank" rel="noopener">Terms</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between">
+          <div>
+            <div style="font-weight:900;color:rgba(248,250,252,.88)">Unity Care Hospital (UCH)</div>
+            <div class="muted" style="margin-top:4px">
+              Institutional telehealth infrastructure — licensable or ownable.
+            </div>
+          </div>
+          <div class="muted">
+            © <span id="y"></span> UCH · <a href="mailto:info@uch.teosegypt.com">info@uch.teosegypt.com</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
