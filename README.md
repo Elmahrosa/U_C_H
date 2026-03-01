@@ -1,128 +1,137 @@
 <div align="center">
 
 # 🏥 Unity Care Hospital (UCH)
-### Institutional Telehealth Infrastructure — **Licensable or Ownable**
+### Institutional Telehealth Infrastructure — Deployable, White-Label, Ownership-Ready
 
-**UCH is modular digital healthcare infrastructure designed for institutional deployment.**  
-Positioned as **infrastructure-as-an-asset** — not consumer telehealth SaaS hype.
-
-🌐 Live: https://uch.teosegypt.com  
-📩 Contact: info@uch.teosegypt.com  
-📞 +201006167293
+**UCH is positioned as infrastructure, not consumer SaaS.**  
+It is designed for **private hospital groups, digital health operators, and sovereign programs** that want **deployment control and long-term strategic ownership**.
 
 </div>
 
 ---
 
-## What this repository contains
-
-This repo ships two deliverables:
-
-1) **Institutional Web Platform (Frontend)**
-- Marketing + procurement-facing landing site
-- Pilot + licensing structure
-- Institutional contact + diligence positioning
-
-2) **Institutional API (Backend)**
-- Enterprise-ready API under `backend/`
-- Designed for deployments where institutions control data and hosting
+## 🔗 Live Links
+- **Website:** https://uch.teosegypt.com
+- **Live Demo (Preview):** https://teos-uch.space.z.ai
+- **Repository:** https://github.com/Elmahrosa/U_C_H
+- **Contact:** info@uch.teosegypt.com | +201006167293  
+- **Response SLA:** We respond within **48 hours** to institutional inquiries.
 
 ---
 
-## Core Positioning
-
-**Teladoc / Amwell:** subscription SaaS, centralized model, no ownership transfer.  
-**UCH:** deployable stack that can be **licensed or fully acquired**, enabling sovereign or private institutional control.
-
-- Modular telehealth infrastructure for institutional deployment
-- Dedicated instance deployment (isolation per institution)
-- Region-specific hosting options
-- Crypto settlement capability is optional (not required)
+## 🎯 What UCH Is
+- Modular digital healthcare platform for institutional deployment
+- White-label capable (branding + roles + admin control)
+- Built to support licensing, ownership transfer, and sovereign deployment models
+- Roadmap supports compliance hardening, integration layers, and advanced modules
 
 ---
 
-## Commercial Structure (Board-Ready)
+## 🧱 Platform Modules (MVP + Roadmap)
+**MVP scope (deployable today):**
+- Teleconsultation workflows
+- WebRTC video consultations
+- Role-based access control (RBAC)
+- Secure patient records (encrypted storage + audit trails)
+- Administrative dashboard
 
-| Tier | Model | Price (baseline) | Notes |
-|------|-------|------------------|------|
-| Tier 1 | License | $75K+ | Institutional deployment + white-label |
-| Tier 2 | Ownership Transfer | $250K+ | Asset transfer of stack + handover |
-| Tier 3 | Sovereign Stack | $350K+ | Government / national program deployment |
-
-**Pilot (3–6 months):** paid validation phase with conversion credit toward the final tier.
-
----
-
-## Compliance posture (truthful & audit-aligned)
-
-- HIPAA-aligned architecture (role-based access, encrypted transmission, audit logging)
-- SOC 2 principles applied at architecture level
-- Formal certification audits are scheduled **post-seed funding**
-
-> We do not claim certifications prematurely.
+**Roadmap modules (institution-led rollout):**
+- Insurance integration layer
+- Blockchain notarization (records integrity proofs)
+- IoT vitals ingestion endpoints
+- AI triage assistant (policy-controlled)
 
 ---
 
-## Quick start (Frontend)
+## 🛡️ Security & Compliance Posture
+Compliance posture: **HIPAA-aligned architecture, SOC 2 principles applied.**  
+Formal certification audits are scheduled **post-seed funding**.
 
-If you are serving static HTML:
-- `index.html` is the landing page
-- `privacy.html` and `terms.html` support institutional/procurement and Pi requirements
-
-Deploy to Vercel as a static site OR host behind your preferred reverse proxy.
+**Security fundamentals:**
+- Encrypted data handling
+- Access logging + audit trails
+- Role-based access control
+- Deployment isolation strategy (per institution)
 
 ---
 
-## Quick start (Backend)
+## 💼 Commercial Tiers (Institutional)
+| Tier | Price (Base) | Designed For |
+|---|---:|---|
+| License | $75K+ | Regional hospital group / operator |
+| Ownership Transfer | $250K+ | Private operator seeking full control |
+| Sovereign Stack | $350K+ | Government / national program |
+
+Maintenance contracts typically **15–20% of license value** (optional; depends on scope).
+
+---
+
+## 🧪 Institutional Pilot (Conversion-Designed)
+**Duration:** 3–6 months  
+**Pilot success metrics:**
+- ✓ ≥ 95% uptime  
+- ✓ Verified clinician usage  
+- ✓ No critical security incidents  
+- ✓ Documented operational improvement  
+- ✓ Executive intent to expand  
+- ✓ Institution retains full data ownership during pilot
+
+**Commercial structure (typical):**
+- Paid pilot: $40K–$60K (credited toward final tier)
+
+---
+
+## 🧾 Diligence Documents (Investor + Procurement)
+All diligence documents are available in `/docs` with board-ready formatting for investor and procurement review.
+
+Key docs:
+- `/docs/DUE_DILIGENCE_QA.md`
+- `/docs/CASHFLOW_12M.md`
+- `/docs/SENSITIVITY_ANALYSIS.md`
+- `/docs/INSTITUTIONAL_PROPOSAL_TEMPLATE.md`
+
+---
+
+## 🧩 Repository Structure
+```txt
+U_C_H/
+  backend/          # API + services
+  frontend/         # Web UI (deploy to uch.teosegypt.com)
+  docs/             # Diligence + proposal templates (board-ready)
+  public/           # Static assets (e.g., Pi validation-key.txt if applicable)
+  README.md
+````
+
+---
+
+## 🚀 Local Development (Example)
+
+> Adjust commands to match your current package manager/scripts.
+
+### Backend
 
 ```bash
-# install backend deps
-npm --prefix backend i
+cd backend
+npm install
+npm run dev
+```
 
-# copy environment template
-cp backend/.env.example backend/.env
+### Frontend
 
-# run backend
-npm --prefix backend run dev
-````
-
-Health check:
-
-* `GET http://localhost:5000/health`
-
----
-
-## Documentation (Investor + Procurement)
-
-Board-ready documents live in:
-
-* `docs/`
-
-Recommended minimum:
-
-* `docs/DUE_DILIGENCE.md`
-* `docs/PILOT_DEPLOYMENT.md`
-* `docs/SECURITY_POSTURE.md`
-* `docs/COMMERCIAL_TERMS.md`
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ---
 
-## Roadmap (disciplined)
+## 📩 Institutional Contact
 
-* Phase 1 — Platform hardening
-* Phase 2 — Institutional pilot deployment
-* Phase 3 — Compliance audit engagement
-* Phase 4 — Blockchain notarization module
-* Phase 5 — Regional expansion
+* **Email:** [info@uch.teosegypt.com](mailto:info@uch.teosegypt.com)
+* **Phone:** +201006167293
+* **Website:** [https://uch.teosegypt.com](https://uch.teosegypt.com)
 
 ---
 
-## Contact
-
-Institutional inquiries:
-
-* Email: [info@uch.teosegypt.com](mailto:info@uch.teosegypt.com)
-* Phone: +201006167293
-* Website: [https://uch.teosegypt.com](https://uch.teosegypt.com)
-
-````
+© Unity Care Hospital (UCH) — Institutional Digital Health Infrastructure
